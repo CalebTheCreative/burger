@@ -34,15 +34,15 @@ const orm = {
   selectAll: function (tblName, cb) {
     let queryString = "SELECT * FROM " + tblName + ";";
 
-    connection.query(queryString, function (err, result) {
+    connection.query(queryString, function (err, res) {
       if (err) {
         throw err;
       }
-      cb(result);
+      cb(res);
     });
   },
   insertOne: function (tbl, cols, vals, cb) {
-    let queryString = "INSERT INTO " + tble;
+    let queryString = "INSERT INTO " + tbl;
 
     queryString += " (";
     queryString += cols.toString();
@@ -51,16 +51,28 @@ const orm = {
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
 
-    connection.query(queryString, vals, function(err, result) {
+    connection.query(queryString, vals, function(err, res) {
       if (err) {
         throw err;
       }
 
-      cb(result)
-    })
+      cb(res);
+    });
   },
-  updateOne: function () {
+  updateOne: function (tbl, objColVals, cond, cb) {
+    let queryString = "UPDATE " + tbl;
 
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
+    queryString += " WHERE ";
+    queryString += cond;
+
+    connection.query(queryString, function(err,res) {
+      if (err) {
+        throw err;
+      }
+      cb(res);
+    });
   }
 };
 
