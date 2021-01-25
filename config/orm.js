@@ -28,9 +28,18 @@ function objToSql(ob) {
     return arr.toString();
   }
 
-let orm = {
-    selectAll: function() {
+// Object for all SQL statement functions
+const orm = {
 
+    selectAll: function(tblName, cb) {
+      let queryString = "SELECT * FROM " + tblName + ";";
+
+      connection.query(queryString, function(err, result) {
+        if (err) {
+          throw err;
+        }
+        cb(result);
+      });
     },
     insertOne: function() {
 
