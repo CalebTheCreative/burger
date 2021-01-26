@@ -6,6 +6,8 @@ const burger = require("../models/burger.js");
 
 // Get Routes
 // =============================================================
+
+// Reading through all burgers in database
 router.get("/", function(req,res) {
     burger.selectAll(function(data) {
         let handlebars_obj = {
@@ -16,5 +18,18 @@ router.get("/", function(req,res) {
     });
 });
 
+// Post Routes
+// =============================================================
+
+// Add a burger
+router.post("/api/burgers", function(req, res) {
+    burger.insertOne([
+        "burger_name", "devoured"
+    ],[
+        req.body.burger_name, req.body.devoured
+    ], function(result) {
+        res.json({ id: result.insertId });
+    });
+});
 
 module.exports = router;
