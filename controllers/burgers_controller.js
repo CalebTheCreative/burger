@@ -32,4 +32,18 @@ router.post("/api/burgers", function(req, res) {
     });
 });
 
+// Update a burger
+router.put("/api/burgers/:id", function(req, res) {
+    let burgerCondition = "id = " + req.params.id;
+    
+    burger.updateOne(["devoured"], [req.body.devoured], burgerCondition, function(devResult) {
+        if (devResult.affectedRows == 0) {
+            return res.status(404).end();
+        }
+        else {
+            res.status(200).end();
+        }
+    });
+});
+
 module.exports = router;
