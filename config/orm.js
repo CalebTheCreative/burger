@@ -37,13 +37,11 @@ function objToSql(ob) {
 // Object for all SQL statement functions
 const orm = {
 
-  selectAll: function (tblName, cb) {
-    let queryString = "SELECT * FROM " + tblName + ";";
+  selectAll: function (cb) {
+    let queryString = "SELECT * FROM burgers";
 
     connection.query(queryString, function (err, res) {
-      if (err) {
-        throw err;
-      }
+      if (err) throw err;
       cb(res);
     });
   },
