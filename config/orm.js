@@ -1,5 +1,9 @@
+// Dependencies
+// =============================================================
 const connection = require("../config/connection.js");
 
+// Helper functions
+// =============================================================
 // Helper function for SQL syntax.
 function printQuestionMarks(num) {
   var arr = [];
@@ -28,6 +32,8 @@ function objToSql(ob) {
   return arr.toString();
 }
 
+// ORM
+// =============================================================
 // Object for all SQL statement functions
 const orm = {
 
