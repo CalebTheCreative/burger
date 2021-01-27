@@ -8,7 +8,7 @@ $(function () {
         };
 
         $.ajax("/api/burgers/" + id, {
-            type: PUT,
+            type: "PUT",
             data: eatenStatus
         }).then(
             function() {
@@ -23,7 +23,8 @@ $(function () {
         event.preventDefault();
 
         let addedBurger = {
-            burger_name: $("#createB").val().trim()
+            burger_name: $("#createB").val().trim(),
+            devoured: $("[name=eaten]").val().trim()
         };
 
         $.ajax("/api/burgers", {
