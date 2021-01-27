@@ -7,11 +7,12 @@ const burger = require("../models/burger.js");
 // Get Routes
 // =============================================================
 
-// Reading through all burgers in database
+// Base route
 router.get("/", function(req,res) {
     res.redirect("/burgers");
 });
 
+// Reading through all burgers in database
 router.get("/burgers", function(req, res) {
     burger.selectAll(function(data) {
         let handlebars_obj = {
