@@ -46,7 +46,7 @@ const orm = {
     });
   },
   insertOne: function (tbl, cols, vals, cb) {
-    let queryString = "INSERT INTO " + tbl;
+    let queryString = "INSERT INTO burgers SET ?";
 
     queryString += " (";
     queryString += cols.toString();
