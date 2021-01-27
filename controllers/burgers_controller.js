@@ -9,6 +9,10 @@ const burger = require("../models/burger.js");
 
 // Reading through all burgers in database
 router.get("/", function(req,res) {
+    res.redirect("/burgers");
+});
+
+router.get("/burgers", function(req, res) {
     burger.selectAll(function(data) {
         let handlebars_obj = {
             burgers: data
