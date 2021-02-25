@@ -6,7 +6,7 @@ This project is to use the handlebars interface to make a database for burgers t
 
 * If using app, run `npm install` in command line
 * After that, run `node server` and click on the link provided in the console.
-* Otherwise, use the [heroku link](https://blooming-sierra-90194.herokuapp.com/burgers)
+* Otherwise, use the [Heroku link](https://shielded-scrubland-69295.herokuapp.com/burgers)
 
 ## Instructions
 1) Open the app.
@@ -14,7 +14,21 @@ This project is to use the handlebars interface to make a database for burgers t
 3) Once that burger is on the screen, you can choose to click the button next to it to either consume the burger or order it again!
 
 ## Screenshots
-![Screenshot 1](SS1.jpg)
+Startup Page:
+
+![Startup Page](public/assets/img/Burger-SS1.png)
+
+Adding a burger to the list:
+
+![Adding Burger](public/assets/img/Burger-SS2.png)
+
+Changing burger status to 'eaten':
+
+![Updating Burger Status](public/assets/img/Burger-SS3.png)
+
+Updated Results:
+
+![Updated Results](public/assets/img/Burger-SS4.png)
 
 ## Questions
 
