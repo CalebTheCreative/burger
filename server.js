@@ -1,6 +1,7 @@
 // Dependencies
 // =============================================================
 const express = require("express");
+const bodyParser = require('body-parser');
 
 // Express
 // =============================================================
@@ -14,8 +15,12 @@ const app = express();
 app.use(express.static("public"));
 
 // For parsing the app body as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+app.use(methodOverride('_method'));
 
 // Handlebar setup
 const exphbs = require("express-handlebars");
