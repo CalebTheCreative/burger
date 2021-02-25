@@ -2,6 +2,7 @@
 // =============================================================
 const express = require("express");
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 // Express
 // =============================================================
@@ -30,7 +31,7 @@ app.set("view engine", "handlebars");
 
 // Import routes & let server access them
 const routes = require("./controllers/burgers_controller.js");
-app.use(routes);
+app.use("/", routes);
 
 // Start server so it can listen for client requests
 app.listen(PORT, function() {
